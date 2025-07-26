@@ -1,16 +1,32 @@
 ---
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '../../assets/blog-placeholder-3.jpg'
+title: 'Why a blog? Why me? Why now?'
+description: 'Why blogging? Why me? Why now?'
+pubDate: 'Jul 26 2025'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+<img src="https://avatars.githubusercontent.com/u/7062978?v=4" alt="Rafael Rocha" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;" />
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+I'm a Portuguese Software Engineer that has a combined experience of over 10 years working in very different contexts.
+From different countries in Europe and in different companies with varying domains and team setups and sizes.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+This made me have quite a very big degree of exposure, having learned with many amazing peers and domains over the course of my experience.
+I studied Engineering and Management of Information Systems with specialisation on Distributed Systems - mostly in the Web - which has contributed to a very solid foundation on architectural principles along with organizational evaluation of needs.
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+I've always done what I do with a passion as it's also one of my main hobbies and interesting - tech fascinates me in the way that it can be leveraged to empowered humanity to be better and take back time to let our creativity flow.
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+# Why blogging in this day and age?
+
+Well, thats a good question ain't it?
+Why would someone blog or even build its own web interface in the age of AI where pretty much research and web search is pretty much becoming solely interfaced via LLM clients?
+
+The reason is mostly to write down my thoughts and potentially interact with like minded people. Also, in this age of AI slop, I wanted to just fuel some custom personalised content into the web in hopes that it might make a dent and diverge from, what will possibly become, the norm of AI generated content.
+
+Practicing my writting skills and at the same time attempting to create engagement as a means to exchange ideas and arguments with the hope of improving myself and potentially help improve others.
+
+# What would I blog about?
+
+I have a massively varied interest set but will narrow it down into Tech and my small side project and experiments, career experience and tips and potentially about other things I love like music, gaming and overall society betterment.
+
+---
+
+I'll try to dedicate time to have a post a month for now to get started and once I develop the habit I will work on features that allow updates of new content to be made visible more clearly. For now stay tuned!
