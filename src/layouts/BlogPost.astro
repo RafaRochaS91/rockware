@@ -4,11 +4,12 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import TagChip from '../components/TagChip.astro';
 import { Image } from 'astro:assets';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 ---
 
 <html lang="en">
@@ -40,6 +41,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin-bottom: 1em;
 				padding: 1em 0;
 				text-align: center;
+				background: linear-gradient(var(--gray-gradient)) no-repeat;
 				line-height: 1;
 			}
 			.title h1 {
@@ -51,6 +53,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			.post-tags {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 0.5rem;
+				margin: 1rem 0;
 			}
 		</style>
 	</head>
@@ -75,6 +84,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							}
 						</div>
 						<h1>{title}</h1>
+						{tags && tags.length > 0 && (
+							<div class="post-tags">
+								{tags.map((tag: string) => (
+									<TagChip 
+										tag={tag} 
+										href={`/blog/?tag=${tag}`}
+									/>
+								))}
+							</div>
+						)}
 						<hr />
 					</div>
 					<slot />

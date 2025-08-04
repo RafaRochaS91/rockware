@@ -13,7 +13,8 @@ const posts = (await getCollection('blog')).sort(
   (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-// Get URL parameters
+// Get URL parameters (simplified)
+const url = Astro.request.url;
 const selectedTag = Astro.url.searchParams.get('tag');
 
 // Get all unique tags
@@ -47,30 +48,19 @@ const filteredPosts = selectedTag
         padding: 0 1rem;
       }
       
-      .filter-bar {
+      .filter-section {
         margin-bottom: 2rem;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid rgb(var(--gray-light));
-      }
-      
-      .filter-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
+        padding: 1.5rem;
+        background: rgb(var(--gray-gradient));
+        border-radius: 12px;
+        border: 1px solid rgb(var(--gray-light));
       }
       
       .filter-title {
-        margin: 0;
+        margin: 0 0 1rem 0;
         color: rgb(var(--black));
-        font-size: 1rem;
-        font-weight: 500;
-        opacity: 0.8;
-      }
-      
-      .filter-count {
-        font-size: 0.9rem;
-        color: rgb(var(--gray));
+        font-size: 1.2rem;
+        font-weight: 600;
       }
       
       .filter-tags {
@@ -83,27 +73,14 @@ const filteredPosts = selectedTag
       .clear-filter {
         color: rgb(var(--accent));
         text-decoration: none;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 16px;
-        border: 1px solid rgb(var(--accent));
-        transition: all 0.2s ease;
-        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        transition: background 0.2s ease;
       }
       
       .clear-filter:hover {
-        background: rgb(var(--accent));
-        color: white;
-      }
-      
-      .active-filter {
-        margin-bottom: 0.5rem;
-        padding: 0.5rem 0;
-        border-radius: 8px;
         background: rgb(var(--accent-light));
-        color: rgb(var(--accent));
-        font-size: 0.9rem;
-        text-align: center;
       }
       
       .posts-grid {
@@ -135,13 +112,6 @@ const filteredPosts = selectedTag
         text-decoration: none;
         color: inherit;
         height: 100%;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-      
-      .post-card a:focus {
-        outline: 2px solid rgb(var(--accent));
-        outline-offset: 2px;
       }
       
       .post-image {
@@ -185,8 +155,6 @@ const filteredPosts = selectedTag
         color: rgb(var(--accent));
         font-size: 0.9rem;
         font-weight: 500;
-        cursor: pointer;
-        transition: color 0.2s ease;
       }
       
       .read-more::after {
@@ -194,15 +162,7 @@ const filteredPosts = selectedTag
         transition: transform 0.2s ease;
       }
       
-      .post-card a:hover .read-more {
-        color: rgb(var(--accent-dark));
-      }
-      
-      .post-card a:visited .read-more {
-        color: rgb(var(--gray));
-      }
-      
-      .post-card a:hover .read-more::after {
+      .post-card:hover .read-more::after {
         transform: translateX(4px);
       }
       
@@ -241,14 +201,8 @@ const filteredPosts = selectedTag
           gap: 1rem;
         }
         
-        .filter-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.5rem;
-        }
-        
-        .filter-tags {
-          gap: 0.25rem;
+        .filter-section {
+          padding: 1rem;
         }
         
         .post-content {
@@ -265,12 +219,8 @@ const filteredPosts = selectedTag
           font-size: 1.1rem;
         }
         
-        .filter-title {
-          font-size: 0.9rem;
-        }
-        
-        .filter-count {
-          font-size: 0.8rem;
+        .filter-tags {
+          gap: 0.25rem;
         }
       }
     </style>
@@ -278,24 +228,13 @@ const filteredPosts = selectedTag
   <body>
     <Header />
     <main>
-      <!-- Filter Bar -->
-      <nav class="filter-bar" aria-label="Content filters">
-        {selectedTag && (
-          <div class="active-filter">
-            Showing posts tagged with "{selectedTag}" 
-            <a href="/blog/" class="clear-filter">× Clear</a>
-          </div>
-        )}
-        
-        <div class="filter-header">
-          <span class="filter-title">Browse by topic:</span>
-          <span class="filter-count">
-            {filteredPosts.length} {filteredPosts.length === 1 ? 'post' : 'posts'}
-            {selectedTag && ` tagged "${selectedTag}"`}
-          </span>
-        </div>
-        
-        <div class="filter-tags" role="list">
+      <!-- Filter Section -->
+      <section class="filter-section">
+        <h3 class="filter-title">Filter by Tag</h3>
+        <div class="filter-tags">
+          {selectedTag && (
+            <a href="/blog/" class="clear-filter">× Clear Filter</a>
+          )}
           {allTags.map(tag => (
             <TagChip 
               tag={tag} 
@@ -304,10 +243,10 @@ const filteredPosts = selectedTag
             />
           ))}
         </div>
-      </nav>
+      </section>
 
       <!-- Posts Grid -->
-      <section aria-label="Blog posts">
+      <section>
         {filteredPosts.length > 0 ? (
           <ul class="posts-grid">
             {filteredPosts.map((post: any) => (
@@ -332,7 +271,7 @@ const filteredPosts = selectedTag
                         {post.data.tags.map((tagName: string) => (
                           <TagChip 
                             tag={tagName} 
-                            clickable={false}
+                            href={`/blog/?tag=${tagName}`}
                           />
                         ))}
                       </div>

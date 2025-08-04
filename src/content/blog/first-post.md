@@ -2,6 +2,7 @@
 title: 'Why a blog? Why me? Why now?'
 description: 'Why blogging? Why me? Why now?'
 pubDate: 'Jul 26 2025'
+tags: ['personal']
 ---
 
 <img src="https://avatars.githubusercontent.com/u/7062978?v=4" alt="Rafael Rocha" style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;" />

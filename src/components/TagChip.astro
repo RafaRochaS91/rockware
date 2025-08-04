@@ -1,0 +1,161 @@
+---
+export interface Props {
+  tag: string;
+  isActive?: boolean;
+  href?: string;
+  clickable?: boolean;
+}
+
+const { tag, isActive = false, href, clickable = true } = Astro.props;
+
+// Color coding based on tag name
+function getTagColor(tagName: string) {
+  // Direct mapping to avoid string method issues
+  if (tagName === 'tech' || tagName === 'development' || tagName === 'programming' || 
+      tagName === 'api' || tagName === 'backend' || tagName === 'frontend' || 
+      tagName === 'tools' || tagName === 'best-practices') {
+    return 'blue';
+  }
+  
+  if (tagName === 'career' || tagName === 'remote-work' || tagName === 'productivity') {
+    return 'green';
+  }
+  
+  if (tagName === 'personal' || tagName === 'blogging' || tagName === 'introduction') {
+    return 'purple';
+  }
+  
+  if (tagName === 'tutorial' || tagName === 'guide' || tagName === 'tips') {
+    return 'orange';
+  }
+  
+  return 'gray';
+}
+
+const colorScheme = getTagColor(tag);
+---
+
+{href && clickable ? (
+  <a href={href} class={`tag-chip ${colorScheme} ${isActive ? 'active' : ''}`} title={`Filter by ${tag}`}>
+    {tag}
+  </a>
+) : (
+  <span class={`tag-chip ${colorScheme} ${isActive ? 'active' : ''} ${!clickable ? 'non-clickable' : ''}`}>
+    {tag}
+  </span>
+)}
+
+<style>
+  .tag-chip {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+
+  /* Color schemes */
+  .tag-chip.blue {
+    background: #e3f2fd;
+    color: #1565c0;
+    border-color: #bbdefb;
+  }
+
+  .tag-chip.blue:hover {
+    background: #bbdefb;
+    color: #0d47a1;
+    border-color: #90caf9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(21, 101, 192, 0.2);
+  }
+
+  .tag-chip.green {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-color: #c8e6c9;
+  }
+
+  .tag-chip.green:hover {
+    background: #c8e6c9;
+    color: #1b5e20;
+    border-color: #a5d6a7;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.2);
+  }
+
+  .tag-chip.purple {
+    background: #f3e5f5;
+    color: #7b1fa2;
+    border-color: #e1bee7;
+  }
+
+  .tag-chip.purple:hover {
+    background: #e1bee7;
+    color: #4a148c;
+    border-color: #ce93d8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(123, 31, 162, 0.2);
+  }
+
+  .tag-chip.orange {
+    background: #fff3e0;
+    color: #ef6c00;
+    border-color: #ffcc02;
+  }
+
+  .tag-chip.orange:hover {
+    background: #ffcc02;
+    color: #e65100;
+    border-color: #ffb300;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(239, 108, 0, 0.2);
+  }
+
+  .tag-chip.gray {
+    background: rgb(var(--gray-light));
+    color: rgb(var(--black));
+    border-color: transparent;
+  }
+
+  .tag-chip.gray:hover {
+    background: rgb(var(--accent-light));
+    color: rgb(var(--accent));
+    border-color: rgb(var(--accent-light));
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Active state overrides */
+  .tag-chip.active {
+    background: rgb(var(--accent)) !important;
+    color: white !important;
+    border-color: rgb(var(--accent)) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .tag-chip.active:hover {
+    background: rgb(var(--accent-dark)) !important;
+    border-color: rgb(var(--accent-dark)) !important;
+  }
+
+  /* Focus styles for accessibility */
+  .tag-chip:focus {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+  }
+
+  /* Non-clickable state for tags inside post cards */
+  .tag-chip.non-clickable {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .tag-chip.non-clickable:hover {
+    transform: none;
+    box-shadow: none;
+  }
+</style>

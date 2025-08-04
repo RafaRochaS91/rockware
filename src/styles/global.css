@@ -55,13 +55,13 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
 	background-size: 100% 400px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
 	font-size: 18px;
 	line-height: 1.75;
+	height: 100%;
 	font-weight: 400;
 	letter-spacing: -0.01em;
 }
